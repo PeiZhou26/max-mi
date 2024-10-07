@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="max-mi">
+  <meta name="keywords" content="Embodied AI, Robotics, Self-Supervised Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MaxMI: A Maximal Mutual Information Criterion for Manipulation Concept Discovery</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MaxMI: A Maximal Mutual Information Criterion for Manipulation Concept Discovery</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="">Pei Zhou</a><sup>1</sup>,
+          </span>          
+            <span class="author-block">
+              <a href="https://yanchaoyang.github.io">Yanchao Yang</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>The University of Hong Kong</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/08845.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2407.15086"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/PeiZhou26/MaxMI"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        <p>
+        TL;DR: We propose an information-theoretic approach for discovering key physical states in unannotated robotic demonstrations. By using a Maximal Mutual Information (MaxMI) criterion, we bypass the need for human semantics and labeling, allowing a network to accurately identify key states that enhance manipulation policy training and improve generalization.
+        </p>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We aim to discover manipulation concepts embedded in the unannotated demonstrations, which are recognized as key physical states. The discovered concepts can facilitate training manipulation policies and promote generalization. Current methods relying on multimodal foundation models for deriving key states usually lack accuracy and semantic consistency due to limited multimodal robot data.
+          </p>
+          <p>
+            In contrast, we introduce an information-theoretic criterion to characterize the regularities that signify a set of physical states. We also develop a framework that trains a concept discovery network using this criterion, thus bypassing the dependence on human semantics and alleviating costly human labeling.
+          </p>
+          <p>
+            The proposed criterion is based on the observation that key states, which deserve to be conceptualized, often admit more physical constraints than non-key states. This phenomenon can be formalized as maximizing the mutual information between the putative key state and its preceding state, i.e., Maximal Mutual Information (MaxMI).
+          </p>
+          <p>
+            By employing MaxMI, the trained key state localization network can accurately identify states of sufficient physical significance, exhibiting reasonable semantic compatibility with human perception. Furthermore, the proposed framework produces key states that lead to concept-guided manipulation policies with higher success rates and better generalization in various robotic tasks compared to the baselines, verifying the effectiveness of the proposed criterion.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Highlights</h2>
+    <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <p>Mutual information between a random state variable and its preceding one
+              achieves a maximum when the state variable coincides with a key state (manipulation concept), as verified across four manipulation tasks.</p>
+            <p>The subfigures highlight the moments when the mutual information arrives at a peak, together with images that illustrate the corresponding key states.</p>
+            <img src="./static/images/mi_peak.png"
+            class="interpolation-image"/>
+          </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2 class="title is-3">Mutual information criterion</h2>
+    <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <p> We choose a neural estimator, <a href="https://datou30.github.io/InfoNet-page/" target="_blank">InfoNet</a>, due to its efficiency, robustness, and differentiability, which is critical for training the proposed self-supervised concept
+              discovery pipeline. And the neural estimator is pretrained and fixed.</p>
+            <img src="./static/images/mi_est.png"
+            class="interpolation-image"/>
+          </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2 class="title is-3">Key state localization</h2>
+    <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <p> The proposed Key State Localization Network (KSL-Net) for manipulation concept discovery. 
+              Every key concept (to be discovered and localized) is represented by a learnable embedding; 
+              the concept embedding is then appended to all state vectors along a trajectory.
+              These augmented state vectors are further processed by a neural network to derive the probability of each state being the identified key state.
+          </p>
+
+
+            <img src="./static/images/framework.png"
+            class="interpolation-image"/>
+          </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2 class="title is-3">Experiments</h2>
+    <div class="is-centered">
+        <div class="column">
+            <div class="content">
+                <p>
+                    The discovered key concepts are consistent with human preference.
+                    <br/><br/>
+                </p>
+                <img src="./static/images/peg_concept.png" class="interpolation-image"/>
+            </div>
+        </div>
+
+        <hr>
+
+        <p>
+            Moreover, the discovered concepts prove to be more beneficial than others when applied on top of the <a href="https://zjia.eng.ucsd.edu/cotpc" target="_blank">CoTPC</a> policy.
+            <br/><br/>
+        </p>
+        <img src="./static/images/main_results.png"
+              class="interpolation-image"
+              alt="Interpolate start reference image."/>
+
+        <hr>
+
+        <p>
+          The number of key concepts will affect the performance of the policy. It's not the case that more key concepts will lead a better performance. 
+          <br/><br/>
+        </p>
+        <img src="./static/images/num_concept.png"
+              class="interpolation-image"
+              alt="Interpolate start reference image."/>
+
+    </div>
+
+
+
+    
+    </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{zhou2024maxmi,
+      title={MaxMI: A Maximal Mutual Information Criterion for Manipulation Concept Discovery},
+      author={Zhou, Pei and Yang, Yanchao},
+      journal={arXiv preprint arXiv:2407.15086},
+      year={2024}
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/zrllrz" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/zrllrz/InfoCon_">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
